@@ -10,7 +10,7 @@ const { BotkitConversation } = require( 'botkit' );
 
 module.exports = function (controller) {
 
-    const convo = new BotkitConversation( 'coffee_chat', controller );
+    const convo = new BotkitConversation( 'config_diff', controller );
 
     convo.ask( 'How about some coffee? (yes / no / cancel)', [
         {
@@ -63,11 +63,11 @@ module.exports = function (controller) {
 
     controller.addDialog( convo );
 
-    controller.hears( 'coffee', 'message,direct_message', async ( bot, message ) => {
+    controller.hears( 'diff', 'message,direct_message', async ( bot, message ) => {
 
-        await bot.beginDialog( 'coffee_chat' );
+        await bot.beginDialog( 'config_diff' );
     });
 
-    controller.commandHelp.push( { command: 'coffee', text: 'Simple dialog example with threads' } );
+    controller.commandHelp.push( { command: 'diff', text: 'Simple dialog example with threads' } );
 
 }
